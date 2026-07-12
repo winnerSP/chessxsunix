@@ -43,22 +43,16 @@ margin:auto;
 }
 
 header,.card{
-
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(10px);
-
 border:1px solid rgba(255,255,255,0.15);
-
 border-radius:20px;
-
 }
 
 header{
-
 text-align:center;
 padding:30px;
 margin-bottom:25px;
-
 }
 
 h1{
@@ -70,72 +64,85 @@ color:#7fd8ff;
 }
 
 .grid{
-
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:20px;
-
 }
 
 .card{
-
 padding:20px;
 transition:.3s;
-
 }
 
 .card:hover{
-
 transform:translateY(-7px);
-
 box-shadow:0 0 25px #00bfff;
-
 }
 
 button{
-
 padding:10px 15px;
 margin-top:10px;
-
 border:none;
 border-radius:12px;
-
 cursor:pointer;
-
 }
 
 button:hover{
-
 background:#7fd8ff;
-
 }
 
 ul{
-
 margin-top:10px;
 padding-left:20px;
-
 }
 
 a{
-
 color:#7fd8ff;
 text-decoration:none;
-
 }
 
 a:hover{
-
 text-decoration:underline;
-
 }
 
-footer{
 
+/* Training bars */
+
+.bar{
+background:rgba(255,255,255,0.15);
+height:20px;
+border-radius:20px;
+overflow:hidden;
+margin:8px 0 15px;
+}
+
+.bar div{
+height:100%;
+background:#7fd8ff;
+color:#000;
+text-align:center;
+font-size:12px;
+line-height:20px;
+border-radius:20px;
+}
+
+.opening{
+width:80%;
+}
+
+.puzzles{
+width:60%;
+}
+
+.games{
+width:100%;
+}
+
+
+footer{
 text-align:center;
 margin-top:30px;
 color:#ccc;
-
 }
 
 </style>
@@ -145,9 +152,7 @@ color:#ccc;
 
 <body>
 
-
 <div class="container">
-
 
 <header>
 
@@ -168,15 +173,10 @@ color:#ccc;
 <p>Upcoming Events:</p>
 
 <ul>
-
 <li>♟ Weekly Training</li>
-
 <li>🏆 Tournament 1 - 17 Jul</li>
-
 <li>🏆 Tournament 2 - 24 Jul</li>
-
 <li>🏆 Tournament 3 - 31 Jul</li>
-
 </ul>
 
 </div>
@@ -221,15 +221,10 @@ color:#ccc;
 <h3>📢 Announcements</h3>
 
 <ul>
-
 <li>🚀 Dashboard 2.0 launched</li>
-
 <li>♟ New chess features added</li>
-
 <li>🏆 Tournaments coming soon</li>
-
 <li>🌐 Join our Chess.com Club!</li>
-
 </ul>
 
 </div>
@@ -244,16 +239,16 @@ color:#ccc;
 <ul>
 
 <li>
+<a href="https://www.chess.com/clubs/about/chess-x-sunix-fan-club" target="_blank">
+♟ Chess.com Club
+</a>
+</li>
+
+<li>
 <a href="https://www.youtube.com/@CHESSSUNIX" target="_blank">
 🎥 YouTube
 </a>
 </li>
-
-<li>♟ Chess Training</li>
-
-<li>📚 Opening Library</li>
-
-<li>🏆 Hall of Fame</li>
 
 </ul>
 
@@ -281,11 +276,28 @@ color:#ccc;
 
 <h3>📈 Training Tracker</h3>
 
-<p>Opening Practice: ████████░░ 80%</p>
+<p>♟ Opening Practice</p>
 
-<p>Puzzles: ██████░░░░ 60%</p>
+<div class="bar">
+<div class="opening">80%</div>
+</div>
 
-<p>Games: ██████████ 100%</p>
+
+<p>🧩 Puzzle Training</p>
+
+<div class="bar">
+<div class="puzzles">60%</div>
+</div>
+
+
+<p>⚔️ Game Analysis</p>
+
+<div class="bar">
+<div class="games">100%</div>
+</div>
+
+
+<p>🔥 Weekly Goal: Improving!</p>
 
 </div>
 
@@ -305,10 +317,7 @@ color:#ccc;
 </div>
 
 
-
 </div>
-
-
 
 
 <footer>
@@ -319,7 +328,6 @@ color:#ccc;
 
 
 </div>
-
 
 
 
