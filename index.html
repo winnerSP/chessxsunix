@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<h1>♞ CHESS × SUNIX</h1>
-<p>Dashboard Version 2.0 🚀🚀</p>
-<p id="welcome"></p>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>♞ CHESS × SUNIX Dashboard 2.0</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box
+}
+
 body{
-font-family:Arial,sans-serif;color:#fff;
+font-family:Arial,sans-serif;
+color:#fff;
 background:
 radial-gradient(circle at 20% 20%,#345,#0000 30%),
 radial-gradient(circle at 80% 30%,#3af,#0000 30%),
@@ -18,80 +25,221 @@ linear-gradient(#020617,#081420,#020617);
 background-size:250% 250%;
 animation:bg 18s ease infinite;
 min-height:100vh;
-padding:30px}
-@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.container{max-width:1100px;margin:auto}
-header,.card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:18px}
-header{text-align:center;padding:25px;margin-bottom:25px}
-h1{font-size:2.3rem}
-h2{color:#7fd8ff;margin-top:8px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{padding:20px;transition:.25s}
-.card:hover{transform:translateY(-6px);box-shadow:0 0 20px rgba(0,191,255,.4)}
-a{color:#9ee7ff;text-decoration:none}
-ul{margin-top:10px;padding-left:18px}
-footer{text-align:center;margin-top:25px;color:#cdd}
+padding:30px
+}
+
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+.container{
+max-width:1100px;
+margin:auto
+}
+
+header,.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:18px
+}
+
+header{
+text-align:center;
+padding:25px;
+margin-bottom:25px
+}
+
+h1{
+font-size:2.3rem
+}
+
+h2{
+color:#7fd8ff;
+margin-top:8px
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px
+}
+
+.card{
+padding:20px;
+transition:.25s
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 20px rgba(0,191,255,.4)
+}
+
+button{
+padding:10px 15px;
+border-radius:10px;
+border:none;
+cursor:pointer;
+margin-top:10px
+}
+
+button:hover{
+background:#7fd8ff
+}
+
+ul{
+margin-top:10px;
+padding-left:18px
+}
+
+footer{
+text-align:center;
+margin-top:25px;
+color:#cdd
+}
 </style>
+
 </head>
+
+
 <body>
+
 <div class="container">
+
+<header>
+
+<h1>♞ CHESS × SUNIX</h1>
+
+<h2>Dashboard Version 2.0 🚀🚀</h2>
+
+<p id="welcome"></p>
+
+</header>
 
 
 <div class="grid">
+
+
 <div class="card">
 <h3>📅 Event Calendar</h3>
 <p>Add your monthly calendar image or embed here.</p>
 </div>
 
+
+
 <div class="card">
-  <h2>🧩 Puzzle of the Week</h2>
-  <p>White to move. Find the best move!</p>
 
-  <button onclick="showPuzzle()">🧩 Puzzle of the Week</button>
+<h2>🧩 Puzzle of the Week</h2>
 
-  <p id="hint"></p>
+<p>White to move. Find the best move!</p>
+
+<button onclick="showPuzzle()">
+Show Hint
+</button>
+
+<p id="hint"></p>
+
 </div>
+
+
+
+
 <div class="card">
+
 <h3>🎉 Fun Friday</h3>
+
 <ul>
 <li>17 Jul – Tournament 1</li>
 <li>24 Jul – Tournament 2</li>
 <li>31 Jul – Tournament 3</li>
 </ul>
+
 </div>
 
+
+
+
 <div class="card">
+
 <h3>📢 Announcements</h3>
+
 <p>Post club news here.</p>
+
 </div>
 
+
+
+
 <div class="card">
+
 <h3>🔗 Quick Links</h3>
+
 <ul>
 <li>Forum</li>
 <li>Club Rules</li>
 <li>YouTube</li>
 <li>Hall of Fame</li>
 </ul>
+
 </div>
+
+
+
 
 <div class="card">
+
 <h3>👥 Members</h3>
-<p>Live member widgets can be explored later depending on available data sources.</p>
-</div>
+
+<p>
+Live member widgets coming soon.
+</p>
+
 </div>
 
-<footer>© 2026 CHESS × ♞ × SUNIX</footer>
+
+
 </div>
-  <script>
-function updateTime() {
-  const now = new Date();
-  document.getElementById("welcome").innerHTML =
-    "🕒 " + now.toLocaleString();
+
+
+<footer>
+© 2026 CHESS × ♞ × SUNIX
+</footer>
+
+
+</div>
+
+
+
+<script>
+
+function updateTime(){
+
+const now=new Date();
+
+document.getElementById("welcome").innerHTML =
+"🕒 " + now.toLocaleString();
+
 }
 
+
+function showPuzzle(){
+
+document.getElementById("hint").innerHTML =
+"💡 Hint: Look for checks, captures, and threats!";
+
+}
+
+
 updateTime();
-setInterval(updateTime, 1000);
+
+setInterval(updateTime,1000);
+
+
 </script>
+
+
 </body>
+
 </html>
