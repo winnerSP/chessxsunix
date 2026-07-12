@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHESS × ♞ × SUNIX Dashboard</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial,sans-serif;
+            color:white;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            overflow:hidden;
+
+            background:
+            radial-gradient(circle at 20% 20%, #274690 0%, transparent 25%),
+            radial-gradient(circle at 80% 40%, #3a86ff 0%, transparent 25%),
+            radial-gradient(circle at 50% 80%, #4361ee 0%, transparent 25%),
+            linear-gradient(180deg,#050816,#09152e,#050816);
+
+            animation:moveGalaxy 20s linear infinite;
+        }
+
+        @keyframes moveGalaxy{
+            from{
+                background-position:0 0,0 0,0 0,0 0;
+            }
+
+            to{
+                background-position:250px 120px,-220px 140px,180px -100px,0 0;
+            }
+        }
+
+        .card{
+            width:90%;
+            max-width:700px;
+
+            background:rgba(255,255,255,.08);
+
+            border:1px solid rgba(255,255,255,.2);
+
+            backdrop-filter:blur(12px);
+
+            border-radius:20px;
+
+            padding:40px;
+
+            text-align:center;
+
+            box-shadow:0 0 40px rgba(0,191,255,.35);
+        }
+
+        h1{
+            font-size:42px;
+            margin-bottom:15px;
+        }
+
+        h2{
+            color:#7fd8ff;
+            margin-bottom:30px;
+        }
+
+        p{
+            font-size:20px;
+            line-height:1.7;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>♞ CHESS × ♞ × SUNIX</h1>
+
+<h2>Dashboard Version 1.0</h2>
+
+<p>
+🚀 Dashboard successfully created!
+<br><br>
+The galaxy background is working.
+<br><br>
+Next we'll add:
+<br>
+📅 Calendar
+<br>
+🧩 Puzzle of the Week
+<br>
+🎉 Fun Friday
+<br>
+👥 Live Widgets
+</p>
+
+</div>
+
+</body>
+</html>
