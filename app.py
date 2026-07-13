@@ -105,6 +105,44 @@ def login():
     }
 @app.route("/login"...)
 
+@app.route("/profile/<username>")
+def get_profile(username):
+
+    db = connect()
+
+    cursor = db.cursor()
+
+
+    cursor.execute(
+        "SELECT username, rating, xp, games FROM users WHERE username=?",
+        (username,)
+    )
+
+
+    user = cursor.fetchone()
+
+
+    db.close()
+
+
+    if user:
+
+        return {
+
+            "username": user[0],
+            "rating": user[1],
+            "xp": user[2],
+            "games": user[3]
+
+        }
+
+
+    return {
+
+        "message":"Player not found"
+
+    }
+
 
 
 if __name__ == "__main__":
