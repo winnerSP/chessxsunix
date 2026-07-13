@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>📈 Stats - CHESS × SUNIX</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:Arial,sans-serif;
+color:white;
+min-height:100vh;
+padding:30px;
+
+background:
+radial-gradient(circle at 20% 20%,#345,#0000 30%),
+radial-gradient(circle at 80% 30%,#3af,#0000 30%),
+radial-gradient(circle at 50% 80%,#56f,#0000 30%),
+linear-gradient(#020617,#081420,#020617);
+
+background-size:250% 250%;
+animation:bg 18s infinite;
+
+}
+
+
+@keyframes bg{
+
+0%{background-position:0% 50%}
+
+50%{background-position:100% 50%}
+
+100%{background-position:0% 50%}
+
+}
+
+
+.container{
+
+max-width:1100px;
+margin:auto;
+
+}
+
+
+nav{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px;
+margin-bottom:30px;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,0.15);
+
+border-radius:20px;
+
+}
+
+
+nav a{
+
+color:#7fd8ff;
+text-decoration:none;
+margin-left:15px;
+font-weight:bold;
+
+}
+
+
+.join{
+
+background:#7fd8ff;
+color:black!important;
+
+padding:10px 18px;
+
+border-radius:15px;
+
+}
+
+
+
+.card{
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,0.15);
+
+border-radius:20px;
+
+padding:25px;
+
+margin-bottom:25px;
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 25px #00bfff;
+
+}
+
+
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.stat{
+
+text-align:center;
+
+}
+
+
+
+.number{
+
+font-size:2.5rem;
+
+color:#7fd8ff;
+
+font-weight:bold;
+
+}
+
+
+
+h1{
+
+text-align:center;
+
+font-size:3rem;
+
+}
+
+
+
+h2{
+
+color:#7fd8ff;
+
+}
+
+
+
+.bar{
+
+background:rgba(255,255,255,0.15);
+
+height:20px;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-top:10px;
+
+}
+
+
+
+.bar div{
+
+height:100%;
+
+background:#7fd8ff;
+
+text-align:center;
+
+color:black;
+
+font-size:12px;
+
+line-height:20px;
+
+}
+
+
+
+footer{
+
+text-align:center;
+
+color:#ccc;
+
+margin-top:30px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<nav>
+
+<h2>♞ CHESS × SUNIX</h2>
+
+
+<div>
+
+<a href="home.html">🏠 Home</a>
+
+<a href="index.html">📊 Dashboard</a>
+
+<a href="play.html">♟ Play</a>
+
+<a href="tournaments.html">🏆 Tournaments</a>
+
+<a href="members.html">👥 Members</a>
+
+<a href="stats.html">📈 Stats</a>
+
+<a class="join"
+href="https://www.chess.com/clubs/about/chess-x-sunix-fan-club">
+🚀 Join
+</a>
+
+</div>
+
+</nav>
+
+
+
+
+<div class="card">
+
+<h1>📈 Club Statistics</h1>
+
+<p style="text-align:center">
+Tracking the growth of CHESS × SUNIX 🚀
+</p>
+
+</div>
+
+
+
+
+
+<div class="grid">
+
+
+<div class="card stat">
+
+<h2>♟ Members</h2>
+
+<p class="number">
+Growing
+</p>
+
+<p>
+Community Expansion
+</p>
+
+</div>
+
+
+
+<div class="card stat">
+
+<h2>🏆 Tournaments</h2>
+
+<p class="number">
+3+
+</p>
+
+<p>
+Events Planned
+</p>
+
+</div>
+
+
+
+<div class="card stat">
+
+<h2>🧩 Puzzles</h2>
+
+<p class="number">
+Weekly
+</p>
+
+<p>
+Training Active
+</p>
+
+</div>
+
+
+
+<div class="card stat">
+
+<h2>🌎 Status</h2>
+
+<p class="number">
+ONLINE
+</p>
+
+<p>
+Platform Active
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+<h2>📊 Training Progress</h2>
+
+
+<p>♟ Opening Knowledge</p>
+
+<div class="bar">
+<div style="width:80%">
+80%
+</div>
+</div>
+
+
+<p>🧩 Puzzle Skills</p>
+
+<div class="bar">
+
+<div style="width:65%">
+65%
+</div>
+
+</div>
+
+
+<p>⚔️ Game Analysis</p>
+
+<div class="bar">
+
+<div style="width:70%">
+70%
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+<h2>🏅 Achievements</h2>
+
+
+<ul>
+
+<li>🚀 Website Creator</li>
+
+<li>🏆 Tournament Participant</li>
+
+<li>🧩 Puzzle Solver</li>
+
+<li>🔥 Active Learner</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+<footer>
+
+© 2026 ♞ CHESS × SUNIX
+
+<br>
+
+Play. Learn. Rise.
+
+</footer>
+
+
+
+</div>
+
+
+</body>
+
+</html>
