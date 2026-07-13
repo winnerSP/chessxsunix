@@ -67,6 +67,16 @@ CREATE TABLE IF NOT EXISTS users(
 
     )
     """)
+    cursor.execute("""
+CREATE TABLE IF NOT EXISTS tournaments(
+
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    date TEXT,
+    status TEXT
+
+)
+""")
 
 
 
