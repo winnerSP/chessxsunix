@@ -26,6 +26,23 @@ def create_tables():
 
     )
     """)
+    cursor.execute("""
+CREATE TABLE IF NOT EXISTS users(
+
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    username TEXT UNIQUE,
+
+    password_hash TEXT,
+
+    rating INTEGER DEFAULT 800,
+
+    xp INTEGER DEFAULT 0,
+
+    games INTEGER DEFAULT 0
+
+)
+""")
 
 
 
