@@ -1,29 +1,8 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
 from database import connect
-
-
-
-@app.route("/add_player/<name>/<rating>")
-def add_player(name, rating):
-
-    db = connect()
-
-    cursor = db.cursor()
-
-    cursor.execute(
-        "INSERT INTO players(username, rating, games) VALUES (?, ?, ?)",
-        (name, int(rating), 0)
-    )
-
-    db.commit()
-    db.close()
-
-    return {
-        "message": "Player Added 🚀"
-    }
 
 
 @app.route("/")
@@ -48,25 +27,42 @@ def stats():
     })
 
 
-@app.route("/players")
-def players():
+# REGISTER
 
-    return jsonify({
+@app.route("/register", methods=["POST"])
+def register():
 
-        "players":[
-            {
-                "name":"Player One",
-                "rating":800
-            },
-            {
-                "name":"Player Two",
-                "rating":900
-            }
-        ]
+    data = request.json
 
-    })
+    username = data["username"]
+    password = data["password"]
 
-@app.route("/register"...)
+
+    db = connect()
+    cursor = db.cursor()
+
+
+    cursor.execute(
+        """
+        INSERT INTO users(username,password,rating,xp,games)
+        VALUES(?,?,?,?,?)
+        """,
+        (username,password,800,0,0)
+    )
+
+
+    db.commit()
+    db.close()
+
+
+    return {
+        "message":"Account created 🚀"
+    }
+
+
+
+# LOGIN
+
 @app.route("/login", methods=["POST"])
 def login():
 
@@ -103,7 +99,10 @@ def login():
     return {
         "message":"Invalid username or password"
     }
-@app.route("/login"...)
+
+
+
+# PROFILE
 
 @app.route("/profile/<username>")
 def get_profile(username):
@@ -114,7 +113,11 @@ def get_profile(username):
 
 
     cursor.execute(
-        "SELECT username, rating, xp, games FROM users WHERE username=?",
+        """
+        SELECT username,rating,xp,games
+        FROM users
+        WHERE username=?
+        """,
         (username,)
     )
 
@@ -129,10 +132,10 @@ def get_profile(username):
 
         return {
 
-            "username": user[0],
-            "rating": user[1],
-            "xp": user[2],
-            "games": user[3]
+            "username":user[0],
+            "rating":user[1],
+            "xp":user[2],
+            "games":user[3]
 
         }
 
@@ -142,6 +145,10 @@ def get_profile(username):
         "message":"Player not found"
 
     }
+
+
+
+# LEADERBOARD
 
 @app.route("/leaderboard")
 def leaderboard():
@@ -153,7 +160,7 @@ def leaderboard():
 
     cursor.execute(
         """
-        SELECT username, rating
+        SELECT username,rating
         FROM users
         ORDER BY rating DESC
         LIMIT 10
@@ -186,6 +193,10 @@ def leaderboard():
 
     }
 
+
+
+# DELETE USER (testing)
+
 @app.route("/delete_user/<username>")
 def delete_user(username):
 
@@ -205,8 +216,14 @@ def delete_user(username):
 
 
     return {
-        "message": username + " deleted 🗑️"
+
+        "message":username + " deleted 🗑️"
+
     }
+
+
+
+# ADD XP
 
 @app.route("/add_xp/<username>/<amount>")
 def add_xp(username, amount):
@@ -219,10 +236,10 @@ def add_xp(username, amount):
     cursor.execute(
         """
         UPDATE users
-        SET xp = xp + ?
-        WHERE username = ?
+        SET xp=xp+?
+        WHERE username=?
         """,
-        (int(amount), username)
+        (int(amount),username)
     )
 
 
@@ -237,58 +254,80 @@ def add_xp(username, amount):
 
     }
 
+
+
+# CREATE TOURNAMENT
+
 @app.route("/create_tournament/<name>/<date>")
-def create_tournament(name, date):
+def create_tournament(name,date):
 
     db = connect()
+
     cursor = db.cursor()
+
 
     cursor.execute(
         """
         INSERT INTO tournaments(name,date,status)
         VALUES(?,?,?)
         """,
-        (name, date, "Open")
+        (name,date,"Open")
     )
 
+
     db.commit()
+
     db.close()
 
+
     return {
+
         "message":"Tournament created 🏆"
+
     }
 
 
+
+# VIEW TOURNAMENTS
 
 @app.route("/tournaments")
 def tournaments():
 
     db = connect()
+
     cursor = db.cursor()
+
 
     cursor.execute(
         "SELECT * FROM tournaments"
     )
 
+
     data = cursor.fetchall()
+
 
     db.close()
 
+
     tournaments=[]
+
 
     for t in data:
 
         tournaments.append({
 
-            "id": t[0],
-            "name": t[1],
-            "date": t[2],
-            "status": t[3]
+            "id":t[0],
+            "name":t[1],
+            "date":t[2],
+            "status":t[3]
 
         })
 
+
     return {
-        "tournaments": tournaments
+
+        "tournaments":tournaments
+
     }
 
 
