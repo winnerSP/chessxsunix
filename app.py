@@ -208,6 +208,35 @@ def delete_user(username):
         "message": username + " deleted 🗑️"
     }
 
+@app.route("/add_xp/<username>/<amount>")
+def add_xp(username, amount):
+
+    db = connect()
+
+    cursor = db.cursor()
+
+
+    cursor.execute(
+        """
+        UPDATE users
+        SET xp = xp + ?
+        WHERE username = ?
+        """,
+        (int(amount), username)
+    )
+
+
+    db.commit()
+
+    db.close()
+
+
+    return {
+
+        "message":"XP added 🚀"
+
+    }
+
 
 
 if __name__ == "__main__":
