@@ -94,6 +94,49 @@ Games: <span id="games">0</span>
 
 
 </div>
+  <script>
+
+async function loadProfile(){
+
+
+let username = "TEST_USERNAME";
+
+
+let response = await fetch(
+
+"http://127.0.0.1:5000/profile/"
++ username
+
+);
+
+
+let data = await response.json();
+
+
+
+document.getElementById("username").innerHTML =
+data.username;
+
+
+document.getElementById("rating").innerHTML =
+data.rating;
+
+
+document.getElementById("xp").innerHTML =
+data.xp;
+
+
+document.getElementById("games").innerHTML =
+data.games;
+
+
+}
+
+
+
+loadProfile();
+
+</script>
 
 
 
