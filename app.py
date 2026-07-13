@@ -237,6 +237,60 @@ def add_xp(username, amount):
 
     }
 
+@app.route("/create_tournament/<name>/<date>")
+def create_tournament(name, date):
+
+    db = connect()
+    cursor = db.cursor()
+
+    cursor.execute(
+        """
+        INSERT INTO tournaments(name,date,status)
+        VALUES(?,?,?)
+        """,
+        (name, date, "Open")
+    )
+
+    db.commit()
+    db.close()
+
+    return {
+        "message":"Tournament created 🏆"
+    }
+
+
+
+@app.route("/tournaments")
+def tournaments():
+
+    db = connect()
+    cursor = db.cursor()
+
+    cursor.execute(
+        "SELECT * FROM tournaments"
+    )
+
+    data = cursor.fetchall()
+
+    db.close()
+
+    tournaments=[]
+
+    for t in data:
+
+        tournaments.append({
+
+            "id": t[0],
+            "name": t[1],
+            "date": t[2],
+            "status": t[3]
+
+        })
+
+    return {
+        "tournaments": tournaments
+    }
+
 
 
 if __name__ == "__main__":
