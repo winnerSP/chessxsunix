@@ -123,49 +123,38 @@ Create Account 🚀
 
 async function register(){
 
-
-let username =
-document.getElementById("username").value;
-
-
-let password =
-document.getElementById("password").value;
+    let username =
+    document.getElementById("username").value;
 
 
-
-let response =
-await fetch(
-"http://127.0.0.1:5000/register",
-{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-
-username:username,
-
-password:password
-
-})
-
-}
-
-);
+    let password =
+    document.getElementById("password").value;
 
 
+    let response = await fetch(
+        "http://127.0.0.1:5000/register",
+        {
+            method:"POST",
 
-let data =
-await response.json();
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+
+                username:username,
+                password:password
+
+            })
+        }
+    );
 
 
+    let data = await response.json();
 
-document.getElementById("result").innerHTML =
-data.message;
 
+    document.getElementById("result").innerHTML =
+    data.message;
 
 }
 
