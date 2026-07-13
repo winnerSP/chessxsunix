@@ -5,6 +5,7 @@ app = Flask(__name__)
 from database import connect
 
 
+
 @app.route("/add_player/<name>/<rating>")
 def add_player(name, rating):
 
@@ -64,6 +65,10 @@ def players():
         ]
 
     })
+
+@app.route("/register"...)
+@app.route("/login"...)
+
 
 
 if __name__ == "__main__":
