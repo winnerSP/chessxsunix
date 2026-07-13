@@ -186,6 +186,28 @@ def leaderboard():
 
     }
 
+@app.route("/delete_user/<username>")
+def delete_user(username):
+
+    db = connect()
+
+    cursor = db.cursor()
+
+
+    cursor.execute(
+        "DELETE FROM users WHERE username=?",
+        (username,)
+    )
+
+
+    db.commit()
+    db.close()
+
+
+    return {
+        "message": username + " deleted 🗑️"
+    }
+
 
 
 if __name__ == "__main__":
