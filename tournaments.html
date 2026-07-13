@@ -358,6 +358,198 @@ Play. Learn. Rise.
 
 
 </div>
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🏆 Tournaments - CHESS × SUNIX</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body{
+
+font-family:Arial,sans-serif;
+
+background:
+radial-gradient(circle at 30% 20%,#345,#0000 30%),
+linear-gradient(#020617,#081420);
+
+color:white;
+
+padding:30px;
+
+}
+
+
+
+.container{
+
+max-width:900px;
+margin:auto;
+
+}
+
+
+
+.card{
+
+background:rgba(255,255,255,0.1);
+
+backdrop-filter:blur(10px);
+
+border-radius:20px;
+
+padding:30px;
+
+}
+
+
+
+h1{
+
+text-align:center;
+
+color:#7fd8ff;
+
+margin-bottom:25px;
+
+}
+
+
+
+.tournament{
+
+background:rgba(255,255,255,0.08);
+
+padding:20px;
+
+margin:15px 0;
+
+border-radius:15px;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="card">
+
+
+<h1>🏆 CHESS × SUNIX Tournaments</h1>
+
+
+<div id="tournaments">
+
+Loading tournaments... 🚀
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+
+async function loadTournaments(){
+
+
+let response = await fetch(
+
+"http://127.0.0.1:5000/tournaments"
+
+);
+
+
+let data = await response.json();
+
+
+let box =
+document.getElementById("tournaments");
+
+
+box.innerHTML="";
+
+
+
+data.tournaments.forEach(tournament=>{
+
+
+let div=document.createElement("div");
+
+
+div.className="tournament";
+
+
+div.innerHTML=
+
+`
+
+<span>
+🏆 ${tournament.name}
+</span>
+
+<span>
+📅 ${tournament.date}
+</span>
+
+<span>
+${tournament.status}
+</span>
+
+`;
+
+
+
+box.appendChild(div);
+
+
+});
+
+
+}
+
+
+
+loadTournaments();
+
+
+</script>
+
+
+</body>
+
+</html>
 
 
 </body>
