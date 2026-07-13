@@ -143,6 +143,49 @@ def get_profile(username):
 
     }
 
+@app.route("/leaderboard")
+def leaderboard():
+
+    db = connect()
+
+    cursor = db.cursor()
+
+
+    cursor.execute(
+        """
+        SELECT username, rating
+        FROM users
+        ORDER BY rating DESC
+        LIMIT 10
+        """
+    )
+
+
+    players = cursor.fetchall()
+
+
+    db.close()
+
+
+    result=[]
+
+
+    for player in players:
+
+        result.append({
+
+            "username":player[0],
+            "rating":player[1]
+
+        })
+
+
+    return {
+
+        "leaderboard":result
+
+    }
+
 
 
 if __name__ == "__main__":
