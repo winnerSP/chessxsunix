@@ -67,6 +67,42 @@ def players():
     })
 
 @app.route("/register"...)
+@app.route("/login", methods=["POST"])
+def login():
+
+    data = request.json
+
+    username = data["username"]
+    password = data["password"]
+
+
+    db = connect()
+    cursor = db.cursor()
+
+
+    cursor.execute(
+        "SELECT * FROM users WHERE username=? AND password=?",
+        (username,password)
+    )
+
+
+    user = cursor.fetchone()
+
+
+    db.close()
+
+
+    if user:
+
+        return {
+            "message":"Login successful 🚀",
+            "username":username
+        }
+
+
+    return {
+        "message":"Invalid username or password"
+    }
 @app.route("/login"...)
 
 
